@@ -24,7 +24,8 @@ export class CreateBlogPostComponent implements OnInit {
   submitPost(): void {
     const blogPost: BlogPost = {
       title: this.title,
-      body: this.body
+      body: this.body,
+      createdDate: new Date()
     };
 
     this.isSubmitting = true;

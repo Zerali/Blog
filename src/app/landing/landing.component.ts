@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BlogPost } from 'src/common/BlogPost';
+import { BlogPostService } from '../blogPost.service';
 
 @Component({
   selector: 'app-landing',
@@ -8,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 export class LandingComponent implements OnInit {
   title = 'blog-app';
 
-  constructor() { }
+  constructor(private blogPostService: BlogPostService) { }
+
+  blogPosts: BlogPost[];
 
   ngOnInit(): void {
+    this.blogPostService.readAll().subscribe((blogPosts) => { this.blogPosts = blogPosts});
   }
-
 }
